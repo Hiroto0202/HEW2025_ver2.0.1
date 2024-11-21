@@ -12,6 +12,8 @@ public class MoveEnemy : MonoBehaviour
     GameObject m_player;            // 目標入力用インスタンス
     Transform m_playerTrans;        // 目標の情報
 
+    KeyCode m_space = KeyCode.Space;
+    public static bool m_throwFlg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +33,16 @@ public class MoveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(Input.GetKeyUp(m_space))
+        {
+            m_throwFlg = true;
+        }
+        else
+        {
+            m_throwFlg = false;
+        }
 
+        Move();
     }
 
     private void FixedUpdate()
