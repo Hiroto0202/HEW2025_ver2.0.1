@@ -17,19 +17,25 @@ public class EnemyManager : MonoBehaviour
     public int m_minY = -5;
     public int m_maxY = 5;
 
+    CountDown m_countDown;  // カウントダウンスクリプト
+
     // Start is called before the first frame update
     void Start()
     {
+        m_countDown = GetComponent<CountDown>();
         Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_elapsedTime += Time.deltaTime;    // 経過時間を求める
+        if(m_countDown.m_countDownFg == false)
+        {
+            m_elapsedTime += Time.deltaTime;    // 経過時間を求める
 
-        CreateEnemy();  // 最大出現数まで敵を作成する
-        DeleteEnemy();  // フラグの立っている敵を削除する
+            CreateEnemy();  // 最大出現数まで敵を作成する
+            DeleteEnemy();  // フラグの立っている敵を削除する
+        }
     }
 
     //===========================================
