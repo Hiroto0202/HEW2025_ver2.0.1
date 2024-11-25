@@ -566,6 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2059792143}
   - component: {fileID: 2059792142}
+  - component: {fileID: 2059792144}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -587,7 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_countDownTime: 4
   m_countDownFg: 0
-  m_UIManager: {fileID: 1587330962}
+  m_UIManager: {fileID: 1587330964}
 --- !u!4 &2059792143
 Transform:
   m_ObjectHideFlags: 0
@@ -603,3 +604,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2059792144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059792141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82be378747bd8e44ba1d35710f0ce3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemyPrefab: {fileID: 2910368762158980817, guid: c8de1e8820fb2674980a4211703fbde6, type: 3}
+  m_maxEnemyNum: 20
+  m_searchFlagTime: 1
+  m_minX: -8
+  m_maxX: 8
+  m_minY: -5
+  m_maxY: 5
