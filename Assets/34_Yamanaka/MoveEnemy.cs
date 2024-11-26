@@ -33,16 +33,16 @@ public class MoveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(m_space))
+        if (Input.GetKeyUp(m_space))
         {
-            m_throwFlg = true;
-        }
-        else
-        {
-            m_throwFlg = false;
+            m_throwFlg = !m_throwFlg;
         }
 
-        Move();
+        if (Vision.m_discoverPlayer)
+        {
+            Move();
+        }
+
     }
 
     private void FixedUpdate()

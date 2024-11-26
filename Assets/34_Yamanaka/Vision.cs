@@ -7,27 +7,29 @@ public class Vision : MonoBehaviour
     bool m_throwedDust = false;
     bool m_throwedMoney = false;
 
-    bool m_throwFlg;
+    GameObject m_obj;
+    public GameObject m_playerPre;
 
     DiscoverThrow m_discoverThrow;
 
-    bool m_discoverPlayer = false;
+    public static bool m_discoverPlayer = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_obj = Instantiate(m_playerPre);
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_throwFlg = MoveEnemy.m_throwFlg;
-
-        if (m_throwFlg == true)
+        m_obj.transform.position = this.transform.position;
+        
+        if (MoveEnemy.m_throwFlg == true)
         {
             if(m_discoverThrow.m_playerThrow)
             {
-
+                m_discoverPlayer = true;
             }
         }
     }
