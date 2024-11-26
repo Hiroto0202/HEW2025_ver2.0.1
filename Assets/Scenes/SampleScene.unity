@@ -728,7 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_countDownText: {fileID: 849506109}
   m_timeLimitText: {fileID: 1142944616}
-  m_pauseText: {fileID: 0}
+  m_pauseText: {fileID: 1545878577}
 --- !u!1 &1694297785
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +807,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1694297789
 RectTransform:
@@ -928,4 +928,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c4c3b6a7a19424294ec4f7966dae34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UIManager: {fileID: 0}
+  m_UIManager: {fileID: 1587330964}
