@@ -15,7 +15,6 @@ public class CountDown : MonoBehaviour
     void Start()
     {
         m_countDownFg = true;
-
     }
 
     // Update is called once per frame
