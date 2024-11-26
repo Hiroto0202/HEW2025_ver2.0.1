@@ -6,6 +6,7 @@ public class Pause : MonoBehaviour
 {
     public UIManager m_UIManager;
     CountDown m_countDown;
+    bool m_pauseFg = false;     // ポーズ中かどうか
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,19 @@ public class Pause : MonoBehaviour
             // エスケープキーが押された時
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                Time.timeScale = 0.0f;  // ゲームを止める
-                m_UIManager.m_pauseText.enabled = true;    // ポーズ表示                                                                     
+                m_pauseFg = !m_pauseFg; // ポーズするかどうかを決定
+            }
 
-                // もう一度エスケープキーが押された時
-                if (Input.GetKeyDown(KeyCode.Escape)) 
+            // ポーズする時
+            if(m_pauseFg == true)
+            {
+                Time.timeScale = 0.0f;  // ゲームを止める
+                m_UIManager.m_pauseText.enabled = true;    // ポーズ表示
+
+                // バックスペースでゲーム終了
+                if (Input.GetKeyDown(KeyCode.Backspace))
                 {
+
                     // UnityEditorでの実行なら再生モードを解除
                     #if UNITY_EDITOR
                         UnityEditor.EditorApplication.isPlaying = false;
@@ -37,12 +45,12 @@ public class Pause : MonoBehaviour
                         Application.Quit();
                     #endif
                 }
-                // バックスペースが押された時
-                else if(Input.GetKeyDown(KeyCode.Backspace))
-                {
-                    m_UIManager.m_pauseText.enabled = false;    // ポーズ非表示
-                    Time.timeScale = 1.0f;                     // ゲームに戻る
-                }
+            }
+            // ポーズしない時
+            else
+            {
+                Time.timeScale = 1.0f;  // ゲームを進める
+                m_UIManager.m_pauseText.enabled = false;    // ポーズ非表示
             }
         }
     }
