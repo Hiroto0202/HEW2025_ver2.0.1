@@ -13,8 +13,7 @@ public class MovePlayer : MonoBehaviour
 
     void Start()
     {
-        //RigitBody‚ðŽæ“¾
-        player_rb=GetComponent<Rigidbody2D>();
+        player_rb=GetComponent<Rigidbody2D>();//RigitBody‚ðŽæ“¾
     }
 
     // Update is called once per frame
