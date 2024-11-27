@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pocket: 0
+  m_gameManager: {fileID: 2059792141}
 --- !u!212 &1174511903
 SpriteRenderer:
   m_ObjectHideFlags: 0
