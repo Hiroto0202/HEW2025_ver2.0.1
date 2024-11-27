@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Vision : MonoBehaviour
 {
-    bool m_throwedDust = false;
     bool m_throwedMoney = false;
 
     GameObject m_obj;
-    public GameObject m_playerPre;
+    public GameObject m_prefub;
 
     bool m_discoverThrow;
     bool m_throwFlg;
@@ -18,7 +17,8 @@ public class Vision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_obj = Instantiate(m_playerPre);
+        m_obj = Instantiate(m_prefub);
+
     }
 
     // Update is called once per frame
@@ -29,6 +29,21 @@ public class Vision : MonoBehaviour
         m_obj.transform.localScale = Vector3.one * 5;
 
         m_throwFlg = this.GetComponent<MoveEnemy>().m_throwFlg;
+
+
+        switch (m_obj.name.ToString())
+        {
+            case "DiscoverThrow":
+                break;
+
+            case "DiscoverDust":
+                break;
+
+            case "DiscoverMoney":
+                break;
+
+        }
+
         m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
         
         if (m_throwFlg)
@@ -46,10 +61,6 @@ public class Vision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag=="Dust")
-        {
-            m_throwedDust = true;
-        }
         if(other.gameObject.tag=="Money")
         {
             m_throwedMoney = true;
@@ -58,28 +69,10 @@ public class Vision : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Dust")
-        {
-            m_throwedDust = false;
-        }
         if (other.gameObject.tag == "Money")
         {
             m_throwedMoney = false;
         }
     }
 
-    void DiscoverThrow()
-    {
-
-    }
-
-    void DiscoverDust()
-    {
-
-    }
-
-    void DiscoverMoney()
-    {
-
-    }
 }
