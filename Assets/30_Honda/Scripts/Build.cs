@@ -40,7 +40,8 @@ public class Build : MonoBehaviour
         // ビルド画面でない時
         else
         {
-            m_UIManager.m_buildText.enabled = false; // ビルドを表示
+            Debug.Log("ビルド終了");
+            m_UIManager.m_buildText.enabled = false; // ビルドを非表示
             Time.timeScale = 1.0f;  // 時間を進める
         }
     }
