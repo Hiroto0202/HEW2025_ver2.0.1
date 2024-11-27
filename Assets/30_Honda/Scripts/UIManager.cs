@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI m_countDownText; // カウントダウン表示
     public TextMeshProUGUI m_timeLimitText; // 制限時間表示
     public TextMeshProUGUI m_pocketText;    // 所持金表示
+    public TextMeshProUGUI m_weatherText;   // 天気表示
+    public TextMeshProUGUI m_situationText; // フェーズ状態表示
     public TextMeshProUGUI m_pauseText;     // ポーズ表示
     public TextMeshProUGUI m_buildText;     // ビルド表示
 

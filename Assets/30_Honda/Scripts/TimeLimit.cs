@@ -36,5 +36,12 @@ public class TimeLimit : MonoBehaviour
                 m_endFg = true;
             }
         }
+
+        // 次のフェーズに移る時に初期化
+        if (m_build.m_nextPhaseFg == true)
+        {
+            m_time = 10;
+            m_endFg = false;    // 制限時間になったかどうか
+        }
     }
 }
