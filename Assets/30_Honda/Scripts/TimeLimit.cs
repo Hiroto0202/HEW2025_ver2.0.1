@@ -6,6 +6,8 @@ public class TimeLimit : MonoBehaviour
 {
     public UIManager m_UIManager;
     CountDown m_countDown;
+    Pause m_pause;
+    Build m_build;
     public float m_time = 10;
     public bool m_endFg = false;    // 制限時間になったかどうか
 
@@ -13,6 +15,8 @@ public class TimeLimit : MonoBehaviour
     void Start()
     {
         m_countDown = GetComponent<CountDown>();
+        m_pause = GetComponent<Pause>();
+        m_build = GetComponent<Build>();
     }
 
     // Update is called once per frame
@@ -21,8 +25,9 @@ public class TimeLimit : MonoBehaviour
         // カウントダウン終了後に実行
         if(m_countDown.m_countDownFg == false)
         {
-            if (m_time > 0)
+            if (m_time > 0 && m_pause.m_pauseFg == false && m_build.m_buildFg == false)
             {
+
                 m_time -= Time.deltaTime;
                 m_UIManager.m_timeLimitText.text = m_time.ToString("0.00s");
             }

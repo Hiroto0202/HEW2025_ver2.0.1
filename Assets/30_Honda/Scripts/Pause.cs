@@ -7,7 +7,7 @@ public class Pause : MonoBehaviour
     public UIManager m_UIManager;
     CountDown m_countDown;
     Build m_build;
-    bool m_pauseFg = false;     // ポーズ中かどうか
+    public bool m_pauseFg = false;     // ポーズ中かどうか
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class Pause : MonoBehaviour
             if(m_pauseFg == true)
             {
                 Debug.Log("ポーズ中");
-                Time.timeScale = 0.0f;  // ゲームを止める
+                //Time.timeScale = 0.0f;  // ゲームを止める
                 m_UIManager.m_pauseText.enabled = true;    // ポーズ表示
 
                 // バックスペースでゲーム終了
@@ -53,7 +53,7 @@ public class Pause : MonoBehaviour
             else
             {
                 Debug.Log("ポーズ解除");
-                Time.timeScale = 1.0f;  // ゲームを進める
+                //Time.timeScale = 1.0f;  // ゲームを進める
                 m_UIManager.m_pauseText.enabled = false;    // ポーズ非表示
             }
         }
