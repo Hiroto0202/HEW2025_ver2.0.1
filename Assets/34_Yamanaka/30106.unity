@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f135ccde97a0694cb573208446ddbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_prefub: {fileID: 0}
+  m_prefub: {fileID: 1192465389310901386, guid: b36423c1e51c77340b8bda6d4c1d010b, type: 3}
   m_discoverPlayer: 0
 --- !u!114 &2066492129
 MonoBehaviour:
@@ -543,5 +543,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f135ccde97a0694cb573208446ddbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_prefub: {fileID: 0}
+  m_prefub: {fileID: 6015660301877261832, guid: 560da10c83793744bb54b1162ef06d35, type: 3}
   m_discoverPlayer: 0
