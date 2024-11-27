@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Vision : MonoBehaviour
 {
-    bool m_throwedMoney = false;
 
     GameObject m_obj;
     public GameObject m_prefub;
@@ -16,6 +15,7 @@ public class Vision : MonoBehaviour
     bool m_throwMoney;
 
     public bool m_discoverPlayer = false;
+    public bool m_discoverMoney = false;
 
     // Start is called before the first frame update
     void Start()
@@ -92,23 +92,11 @@ public class Vision : MonoBehaviour
 
     void DiscoverMoney()
     {
+        bool m_throwMoney = m_obj.GetComponent<DiscoverMoney>().m_throwMoney;
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.tag=="Money")
+        if(m_throwMoney)
         {
-            m_throwedMoney = true;
+            m_discoverMoney = true;
         }
     }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Money")
-        {
-            m_throwedMoney = false;
-        }
-    }
-
 }

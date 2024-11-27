@@ -12,10 +12,17 @@ public class MoveEnemy : MonoBehaviour
     GameObject m_player;            // 目標入力用インスタンス
     Transform m_playerTrans;        // 目標の情報
 
+    GameObject m_dust;            // 目標入力用インスタンス
+    Transform m_dustTrans;        // 目標の情報
+
+    GameObject m_money;            // 目標入力用インスタンス
+    Transform m_moneyTrans;        // 目標の情報
+
     KeyCode m_space = KeyCode.Space;
     public bool m_throwFlg = false;
 
     bool m_discoverPlayer;
+    bool m_discoverMoney;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +37,14 @@ public class MoveEnemy : MonoBehaviour
         // プレイヤーを探す
         m_player = GameObject.Find("Player");
         m_playerTrans = m_player.transform;
+
+        // ゴミを探す
+        m_player = GameObject.Find("Dust");
+        m_playerTrans = m_player.transform;
+
+        // お金を探す
+        m_player = GameObject.Find("");
+        m_playerTrans = m_player.transform;
     }
 
     // Update is called once per frame
@@ -41,10 +56,16 @@ public class MoveEnemy : MonoBehaviour
         }
 
         m_discoverPlayer = this.GetComponent<Vision>().m_discoverPlayer;
+        m_discoverMoney = this.GetComponent<Vision>().m_discoverMoney;
 
-        if (m_discoverPlayer)
+
+        if (m_discoverMoney)
         {
-            Move();
+            Move(this.transform.position,m_player.transform.position);
+        }
+        else if(m_discoverPlayer)
+        {
+            Move(this.transform.position, m_player.transform.position);
         }
     }
 
@@ -54,7 +75,7 @@ public class MoveEnemy : MonoBehaviour
     }
 
     // 目標を見つけた時の処理
-    void Move()
+    void Move(Vector2 _current, Vector2 _target)
     {
         Vector2 _enePos = this.transform.position;
         m_player = GameObject.Find("Player");
