@@ -10,9 +10,10 @@ public class Vision : MonoBehaviour
     GameObject m_obj;
     public GameObject m_playerPre;
 
-    DiscoverThrow m_discoverThrow;
+    bool m_discoverThrow;
+    bool m_throwFlg;
 
-    public static bool m_discoverPlayer = false;
+    public bool m_discoverPlayer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,21 @@ public class Vision : MonoBehaviour
     void Update()
     {
         m_obj.transform.position = this.transform.position;
+
+        m_obj.transform.localScale = Vector3.one * 5;
+
+        m_throwFlg = this.GetComponent<MoveEnemy>().m_throwFlg;
+        m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
         
-        if (MoveEnemy.m_throwFlg == true)
+        if (m_throwFlg)
         {
-            if(m_discoverThrow.m_playerThrow)
+            if(m_discoverThrow)
             {
                 m_discoverPlayer = true;
+            }
+            else
+            {
+                m_discoverPlayer = false;
             }
         }
     }
