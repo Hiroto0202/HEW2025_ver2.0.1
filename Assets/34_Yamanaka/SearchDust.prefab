@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3068683081224491856}
   - component: {fileID: 3018744076804534844}
-  - component: {fileID: 6325931310849341373}
+  - component: {fileID: -2923905428144875278}
   - component: {fileID: 1049877638658056427}
   m_Layer: 0
   m_Name: SearchDust
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6325931310849341373
+--- !u!114 &-2923905428144875278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6015660301877261832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91fbfe41ed4cc84791c69b802ed97a6, type: 3}
+  m_Script: {fileID: 11500000, guid: f56405bd730a5544ab91c2a04ddd8e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerThrow: 0
+  m_throwDust: 0
 --- !u!58 &1049877638658056427
 CircleCollider2D:
   m_ObjectHideFlags: 0

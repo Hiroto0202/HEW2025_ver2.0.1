@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DiscoverDust : MonoBehaviour
 {
-    bool m_throwDust = false;
+    public bool m_throwDust = false;
     
     // Start is called before the first frame update
     void Start()
