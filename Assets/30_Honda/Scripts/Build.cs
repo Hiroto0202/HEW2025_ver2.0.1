@@ -28,7 +28,7 @@ public class Build : MonoBehaviour
         // ビルド画面の時
         if(m_buildFg == true)
         {
-            Time.timeScale = 0.0f;  // ゲームを止める
+            //Time.timeScale = 0.0f;  // ゲームを止める
             m_UIManager.m_buildText.enabled = true; // ビルドを表示
 
             // エンターキーが押されたら
@@ -42,7 +42,7 @@ public class Build : MonoBehaviour
         {
             Debug.Log("ビルド終了");
             m_UIManager.m_buildText.enabled = false; // ビルドを非表示
-            Time.timeScale = 1.0f;  // 時間を進める
+            //Time.timeScale = 1.0f;  // 時間を進める
         }
     }
 }

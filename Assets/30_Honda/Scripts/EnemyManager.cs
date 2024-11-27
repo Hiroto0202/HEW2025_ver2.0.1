@@ -17,19 +17,23 @@ public class EnemyManager : MonoBehaviour
     public int m_minY = -5;
     public int m_maxY = 5;
 
-    CountDown m_countDown;  // カウントダウンスクリプト
+    CountDown m_countDown;
+    Pause m_pause;
+    Build m_build;
 
     // Start is called before the first frame update
     void Start()
     {
         m_countDown = GetComponent<CountDown>();
+        m_pause = GetComponent<Pause>();
+        m_build = GetComponent<Build>();
         Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_countDown.m_countDownFg == false)
+        if(m_countDown.m_countDownFg == false && m_pause.m_pauseFg == false && m_build.m_buildFg == false)
         {
             m_elapsedTime += Time.deltaTime;    // 経過時間を求める
 

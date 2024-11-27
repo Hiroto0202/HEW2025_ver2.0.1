@@ -804,7 +804,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587330962}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_countDownText: {fileID: 849506109}
   m_timeLimitText: {fileID: 1142944616}
-  m_pocketText: {fileID: 0}
+  m_pocketText: {fileID: 2082030470}
   m_pauseText: {fileID: 1545878577}
   m_buildText: {fileID: 1768162007}
 --- !u!1 &1694297785
@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 2059792145}
   - component: {fileID: 2059792146}
   - component: {fileID: 2059792147}
+  - component: {fileID: 2059792148}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1169,6 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIManager: {fileID: 1587330964}
+  m_pauseFg: 0
 --- !u!114 &2059792147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1185,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UIManager: {fileID: 1587330964}
   m_buildFg: 0
+--- !u!114 &2059792148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059792141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ec97f7dfcc59a4baceb330f1a0b417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIManager: {fileID: 1587330964}
+  m_actMoney: {fileID: 1174511902}
 --- !u!1 &2082030468
 GameObject:
   m_ObjectHideFlags: 0

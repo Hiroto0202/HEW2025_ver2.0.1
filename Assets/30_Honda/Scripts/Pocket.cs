@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pocket : MonoBehaviour
 {
     public UIManager m_UIManager;
+    public ActMoney m_actMoney;
     Build m_build;
     CountDown m_countDown;
 
@@ -14,6 +15,7 @@ public class Pocket : MonoBehaviour
         m_UIManager = GetComponent<UIManager>();
         m_build = GetComponent<Build>();
         m_countDown = GetComponent<CountDown>();
+        m_UIManager.m_pocketText.enabled = false;   // 非表示
     }
 
     // Update is called once per frame
@@ -22,7 +24,8 @@ public class Pocket : MonoBehaviour
         // カウントダウン終了後かつ、ビルド画面でないとき
         if (m_countDown.m_countDownFg == false && m_build.m_buildFg == false)
         {
-
+            m_UIManager.m_pocketText.enabled = true;   // 表示
+            m_UIManager.m_pocketText.text = m_actMoney.m_pocket.ToString("$0"); // 所持金をテキストで表示
         }
     }
 }
