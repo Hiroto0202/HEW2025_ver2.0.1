@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI m_countDownText; // カウントダウン表示
     public TextMeshProUGUI m_timeLimitText; // 制限時間表示
     public TextMeshProUGUI m_pauseText;     // ポーズ表示
+    public TextMeshProUGUI m_buildText;     // ビルド表示
 
     // Start is called before the first frame update
     void Start()
