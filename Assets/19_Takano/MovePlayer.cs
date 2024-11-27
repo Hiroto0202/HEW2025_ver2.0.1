@@ -7,16 +7,16 @@ using UnityEngine.InputSystem;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float speed = 5.0f;//プレイヤーの速度
-    Vector2 playerMoveVec;//プレイヤーの進む向き
-    Rigidbody2D player_rb;//プレイヤーの物理演算のコンポーネント
+    public float m_speed = 5.0f;//プレイヤーの速度
+    Vector2 m_playerMoveVec;//プレイヤーの進む向き
+    Rigidbody2D m_player_rb;//プレイヤーの物理演算のコンポーネント
     public InputAction m_aim;
 
 
     void Start()
     {
         //RigitBodyを取得
-        player_rb=GetComponent<Rigidbody2D>();
+        m_player_rb=GetComponent<Rigidbody2D>();
         m_aim.Enable(); // InputAction を有効化
     }
 
@@ -27,6 +27,6 @@ public class MovePlayer : MonoBehaviour
         //playerMoveVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector2 playerMoveVec = m_aim.ReadValue<Vector2>();
         //左スティックの動きを計算
-        player_rb.velocity = playerMoveVec * speed;
+        m_player_rb.velocity = playerMoveVec * m_speed;
     }
 }
