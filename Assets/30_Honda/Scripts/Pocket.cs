@@ -12,7 +12,6 @@ public class Pocket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_UIManager = GetComponent<UIManager>();
         m_build = GetComponent<Build>();
         m_countDown = GetComponent<CountDown>();
         m_UIManager.m_pocketText.enabled = false;   // 非表示
@@ -25,7 +24,7 @@ public class Pocket : MonoBehaviour
         if (m_countDown.m_countDownFg == false && m_build.m_buildFg == false)
         {
             m_UIManager.m_pocketText.enabled = true;   // 表示
-            m_UIManager.m_pocketText.text = m_actMoney.m_pocket.ToString("$0"); // 所持金をテキストで表示
+            m_UIManager.m_pocketText.text = m_actMoney.m_pocket.ToString("$000000"); // 所持金をテキストで表示
         }
     }
 }
