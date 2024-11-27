@@ -12,13 +12,15 @@ public class Vision : MonoBehaviour
     bool m_discoverThrow;
     bool m_throwFlg;
 
+    bool m_throwdust;
+    bool m_throwMoney;
+
     public bool m_discoverPlayer = false;
 
     // Start is called before the first frame update
     void Start()
     {
         m_obj = Instantiate(m_prefub);
-
     }
 
     // Update is called once per frame
@@ -34,21 +36,27 @@ public class Vision : MonoBehaviour
         switch (m_obj.name.ToString())
         {
             case "DiscoverThrow":
+                DiscoverPlayer();
                 break;
 
             case "DiscoverDust":
+                DiscoverDust();
                 break;
 
             case "DiscoverMoney":
+                DiscoverMoney();
                 break;
-
         }
+    }
+
+    void DiscoverPlayer()
+    {
 
         m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
-        
+
         if (m_throwFlg)
         {
-            if(m_discoverThrow)
+            if (m_discoverThrow)
             {
                 m_discoverPlayer = true;
             }
@@ -57,6 +65,17 @@ public class Vision : MonoBehaviour
                 m_discoverPlayer = false;
             }
         }
+
+    }
+
+    void DiscoverDust()
+    {
+
+    }
+
+    void DiscoverMoney()
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
