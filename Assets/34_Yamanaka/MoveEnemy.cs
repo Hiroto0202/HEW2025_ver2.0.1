@@ -36,13 +36,15 @@ public class MoveEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(m_space))
+        if (Input.GetKeyUp(m_space))
         {
 <<<<<<< Updated upstream
             m_throwFlg = true;
         }
-        else
+
+        if (m_throwFlg)
         {
+<<<<<<< Updated upstream
             m_throwFlg = false;
 =======
             m_throwFlg = !m_throwFlg;
@@ -54,9 +56,11 @@ public class MoveEnemy : MonoBehaviour
         {
             Move();
 >>>>>>> Stashed changes
+=======
+            Move();
+>>>>>>> Stashed changes
         }
 
-        Move();
     }
 
     private void FixedUpdate()

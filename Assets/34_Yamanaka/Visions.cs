@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vision : MonoBehaviour
+public class Visions : MonoBehaviour
 {
     bool m_playerThrow = false;
     bool m_throwedDust = false;
