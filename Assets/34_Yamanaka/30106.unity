@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1713074627}
   - component: {fileID: 1713074626}
   - component: {fileID: 1713074629}
+  - component: {fileID: 1713074630}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -330,6 +331,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1713074630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713074625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34cf0e4e31a46e41af043b51cb8e3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  W: 119
+  A: 97
+  S: 115
+  D: 100
+  m_speed: 30
+  Space: 32
+  m_prefub: {fileID: 0}
+  m_power: 0.5
 --- !u!1 &2066492118
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefub: {fileID: 7345293042506302042, guid: 593ab0af284fb244fa830e00a8f856a5, type: 3}
+  m_throwFlg: 0
   m_discoverPlayer: 0
 --- !u!58 &2066492127
 CircleCollider2D:
@@ -530,6 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefub: {fileID: 1192465389310901386, guid: b36423c1e51c77340b8bda6d4c1d010b, type: 3}
+  m_throwFlg: 0
   m_discoverPlayer: 0
 --- !u!114 &2066492129
 MonoBehaviour:
@@ -544,4 +567,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefub: {fileID: 6015660301877261832, guid: 560da10c83793744bb54b1162ef06d35, type: 3}
+  m_throwFlg: 0
   m_discoverPlayer: 0
