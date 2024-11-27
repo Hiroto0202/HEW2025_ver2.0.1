@@ -46,7 +46,6 @@ public class MoveEnemy : MonoBehaviour
         {
             Move();
         }
-
     }
 
     private void FixedUpdate()

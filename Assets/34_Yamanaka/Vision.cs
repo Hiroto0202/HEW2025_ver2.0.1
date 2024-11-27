@@ -10,9 +10,9 @@ public class Vision : MonoBehaviour
     public GameObject m_prefub;
 
     bool m_discoverThrow;
-    bool m_throwFlg;
+    public bool m_throwFlg;
 
-    bool m_throwdust;
+    bool m_throwDust;
     bool m_throwMoney;
 
     public bool m_discoverPlayer = false;
@@ -32,19 +32,22 @@ public class Vision : MonoBehaviour
 
         m_throwFlg = this.GetComponent<MoveEnemy>().m_throwFlg;
 
+        string m_name = m_obj.name;
 
-        switch (m_obj.name.ToString())
+
+        switch (m_name)
         {
-            case "DiscoverThrow":
+            case "SearchPlayer(Clone)":
                 DiscoverPlayer();
+                Debug.Log("Searchplayeré¿çsíÜ");
                 break;
 
-            case "DiscoverDust":
-                DiscoverDust();
+            case "DiscoverDust(Clone)":
+                //DiscoverDust();
                 break;
 
-            case "DiscoverMoney":
-                DiscoverMoney();
+            case "DiscoverMoney(Clone)":
+                //DiscoverMoney();
                 break;
         }
     }
@@ -70,6 +73,20 @@ public class Vision : MonoBehaviour
 
     void DiscoverDust()
     {
+        //m_throwDust = m_obj.GetComponent<DiscoverDust>().m_throwDust;
+        //m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
+
+        //if (!m_throwFlg)
+        //{
+        //    if (m_discoverThrow)
+        //    {
+        //        m_discoverPlayer = true;
+        //    }
+        //    else
+        //    {
+        //        m_discoverPlayer = false;
+        //    }
+        //}
 
     }
 
