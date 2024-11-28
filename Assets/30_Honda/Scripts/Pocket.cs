@@ -28,12 +28,20 @@ public class Pocket : MonoBehaviour
             m_UIManager.m_pocketText.text = m_actMoney.m_pocket.ToString("$000000"); // 所持金をテキストで表示
         }
 
-        // 次のフェーズに移る時に初期化
-        if (m_build.m_nextPhaseFg == true)
-        {
-            m_money += m_actMoney.m_pocket;             // 所持金をすべてのお金に加算
-            m_actMoney.m_pocket = 0;                    // 所持金を0にする
-            m_UIManager.m_pocketText.enabled = false;   // 非表示
-        }
+        //// 次のフェーズに移る時に初期化
+        //if (m_build.m_nextPhaseFg == true)
+        //{
+        //    m_money += m_actMoney.m_pocket;             // 所持金をすべてのお金に加算
+        //    Init();
+        //}
+    }
+
+    //===========================================================
+    // 初期化処理
+    //===========================================================
+    public void Init()
+    {
+        m_actMoney.m_pocket = 0;                    // 所持金を0にする
+        m_UIManager.m_pocketText.enabled = false;   // 非表示
     }
 }

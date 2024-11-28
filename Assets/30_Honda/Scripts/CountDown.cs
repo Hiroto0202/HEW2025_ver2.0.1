@@ -35,10 +35,20 @@ public class CountDown : MonoBehaviour
             m_UIManager.m_countDownText.enabled = false; // テキストを非表示
         }
 
-        // 次のフェーズに移る時に初期化
-        if (m_build.m_nextPhaseFg == true)
-        {
-            m_countDownFg = true;
-        }
+        //// 次のフェーズに移る時に初期化
+        //if (m_build.m_nextPhaseFg == true)
+        //{
+        //    Init();
+        //}
+    }
+
+    //===========================================================
+    // 初期化処理
+    //===========================================================
+    public void Init()
+    {
+        m_countDownFg = true; 
+        m_countDownTime = 4;    // タイマーリセット
+        m_UIManager.m_countDownText.enabled = true; // テキストを非表示
     }
 }

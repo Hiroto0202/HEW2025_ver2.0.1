@@ -37,11 +37,20 @@ public class TimeLimit : MonoBehaviour
             }
         }
 
-        // 次のフェーズに移る時に初期化
-        if (m_build.m_nextPhaseFg == true)
-        {
-            m_time = 10;
-            m_endFg = false;    // 制限時間になったかどうか
-        }
+        //// 次のフェーズに移る時に初期化
+        //if (m_build.m_nextPhaseFg == true)
+        //{
+        //    //Init();
+        //}
+    }
+
+    //===========================================================
+    // 初期化処理
+    //===========================================================
+     public void Init()
+    {
+        Debug.Log("Hoge");
+        m_time = 10;
+        m_endFg = false;    // 制限時間になったかどうか
     }
 }

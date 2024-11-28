@@ -1362,6 +1362,7 @@ GameObject:
   - component: {fileID: 2059792147}
   - component: {fileID: 2059792148}
   - component: {fileID: 2059792149}
+  - component: {fileID: 2059792150}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1491,6 +1492,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIManager: {fileID: 1587330964}
+--- !u!114 &2059792150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059792141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a639b42594bcf8439ca9a27d132cf08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_countDown: {fileID: 2059792142}
+  m_timeLimit: {fileID: 2059792145}
+  m_enemyManager: {fileID: 2059792144}
+  m_pocket: {fileID: 2059792148}
+  m_phaseInfo: {fileID: 2059792149}
+  m_pause: {fileID: 2059792146}
+  m_build: {fileID: 2059792147}
 --- !u!1 &2082030468
 GameObject:
   m_ObjectHideFlags: 0

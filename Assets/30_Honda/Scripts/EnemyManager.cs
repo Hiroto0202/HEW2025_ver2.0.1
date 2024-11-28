@@ -51,7 +51,7 @@ public class EnemyManager : MonoBehaviour
     //===========================================
     // ‰Šú‰»ˆ—
     //===========================================
-    private void Init()
+    public void Init()
     {
         // “G‚ª‘¶Ý‚·‚éê‡
         if (m_enemyList.Count > 0)
