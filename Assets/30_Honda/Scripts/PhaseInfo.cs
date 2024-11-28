@@ -13,6 +13,10 @@ public class PhaseInfo : MonoBehaviour
     {
         m_countDown = GetComponent<CountDown>();
         m_build = GetComponent<Build>();
+        m_UIManager.m_weatherText.text = "Asa";         // 初期フェーズ
+        m_UIManager.m_situationText.text = "Hare";      // 初期フェーズ状態
+        m_UIManager.m_weatherText.enabled = true;       // 表示
+        m_UIManager.m_situationText.enabled = true;     // 表示
     }
 
     // Update is called once per frame
@@ -21,9 +25,6 @@ public class PhaseInfo : MonoBehaviour
         // カウントダウン終了後
         if (m_countDown.m_countDownFg == false)
         {
-            m_UIManager.m_weatherText.enabled = true;      // 表示
-            m_UIManager.m_situationText.enabled = true;    // 表示
-
             switch (m_build.m_phaseCnt)
             {
                 case 0:
@@ -43,12 +44,6 @@ public class PhaseInfo : MonoBehaviour
                     break;
             }
         }
-
-        //// 次のフェーズに移る時に初期化
-        //if (m_build.m_nextPhaseFg == true)
-        //{
-        //    Init();
-        //}
     }
 
     //===========================================================
@@ -56,7 +51,6 @@ public class PhaseInfo : MonoBehaviour
     //===========================================================
     public void Init()
     {
-        m_UIManager.m_weatherText.enabled = false;      // 非表示
-        m_UIManager.m_situationText.enabled = false;    // 非表示
+
     }
 }

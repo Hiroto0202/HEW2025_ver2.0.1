@@ -57,12 +57,6 @@ public class Pause : MonoBehaviour
                 m_UIManager.m_pauseText.enabled = false;    // ポーズ非表示
             }
         }
-
-        //// 次のフェーズに移る時に初期化
-        //if (m_build.m_nextPhaseFg == true)
-        //{
-        //    Init();
-        //}
     }
 
     //===========================================================

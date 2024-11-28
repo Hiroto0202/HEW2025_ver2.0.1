@@ -34,12 +34,6 @@ public class CountDown : MonoBehaviour
             m_countDownFg = false;  // カウントダウン終了
             m_UIManager.m_countDownText.enabled = false; // テキストを非表示
         }
-
-        //// 次のフェーズに移る時に初期化
-        //if (m_build.m_nextPhaseFg == true)
-        //{
-        //    Init();
-        //}
     }
 
     //===========================================================

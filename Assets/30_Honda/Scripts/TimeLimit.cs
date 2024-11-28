@@ -25,6 +25,9 @@ public class TimeLimit : MonoBehaviour
         // カウントダウン終了後に実行
         if(m_countDown.m_countDownFg == false)
         {
+            m_UIManager.m_timeLimitText.enabled = true; // 表示
+
+            // ポーズ、ビルド以外の時に時間を減らす
             if (m_time > 0 && m_pause.m_pauseFg == false && m_build.m_buildFg == false)
             {
 
@@ -36,12 +39,6 @@ public class TimeLimit : MonoBehaviour
                 m_endFg = true;
             }
         }
-
-        //// 次のフェーズに移る時に初期化
-        //if (m_build.m_nextPhaseFg == true)
-        //{
-        //    //Init();
-        //}
     }
 
     //===========================================================
@@ -52,5 +49,6 @@ public class TimeLimit : MonoBehaviour
         Debug.Log("Hoge");
         m_time = 10;
         m_endFg = false;    // 制限時間になったかどうか
+        m_UIManager.m_timeLimitText.enabled = false; // 非表示
     }
 }
