@@ -363,12 +363,13 @@ GameObject:
   - component: {fileID: 2066492119}
   - component: {fileID: 2066492123}
   - component: {fileID: 2066492122}
+  - component: {fileID: 2066492127}
   - component: {fileID: 2066492121}
   - component: {fileID: 2066492125}
   - component: {fileID: 2066492126}
   - component: {fileID: 2066492129}
   - component: {fileID: 2066492128}
-  - component: {fileID: 2066492127}
+  - component: {fileID: 2066492130}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -575,3 +576,16 @@ MonoBehaviour:
   m_discoverPlayer: 0
   m_discoverDust: 0
   m_discoverMoney: 0
+--- !u!114 &2066492130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066492118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00dfee329ef169f43b8c502e4de6e3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dropMoney: {fileID: 4570201805833055821, guid: 53e707ef39c9aa846aa038ef1be19b10, type: 3}
