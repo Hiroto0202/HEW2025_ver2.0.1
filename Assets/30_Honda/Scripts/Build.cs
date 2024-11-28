@@ -22,7 +22,6 @@ public class Build : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_phaseCnt);
         // §ŒÀŠÔ‚ª‰ß‚¬‚½‚ç
         if(m_timeLimit.m_time <= 0)
         {
