@@ -325,7 +325,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -523,6 +523,8 @@ MonoBehaviour:
   m_prefub: {fileID: 7345293042506302042, guid: 593ab0af284fb244fa830e00a8f856a5, type: 3}
   m_throwFlg: 0
   m_discoverPlayer: 0
+  m_discoverDust: 0
+  m_discoverMoney: 0
 --- !u!58 &2066492127
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -554,6 +556,8 @@ MonoBehaviour:
   m_prefub: {fileID: 1192465389310901386, guid: b36423c1e51c77340b8bda6d4c1d010b, type: 3}
   m_throwFlg: 0
   m_discoverPlayer: 0
+  m_discoverDust: 0
+  m_discoverMoney: 0
 --- !u!114 &2066492129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,3 +573,5 @@ MonoBehaviour:
   m_prefub: {fileID: 6015660301877261832, guid: 560da10c83793744bb54b1162ef06d35, type: 3}
   m_throwFlg: 0
   m_discoverPlayer: 0
+  m_discoverDust: 0
+  m_discoverMoney: 0
