@@ -23,6 +23,7 @@ public class MoveEnemy : MonoBehaviour
 
     bool m_discoverPlayer;
     bool m_discoverMoney;
+    bool m_discoverDust;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +40,12 @@ public class MoveEnemy : MonoBehaviour
         m_playerTrans = m_player.transform;
 
         // ƒSƒ~‚ð’T‚·
-        m_player = GameObject.Find("Dust");
-        m_playerTrans = m_player.transform;
+        m_dust = GameObject.Find("Dust");
+        m_dustTrans = m_dust.transform;
 
         // ‚¨‹à‚ð’T‚·
-        m_player = GameObject.Find("");
-        m_playerTrans = m_player.transform;
+        m_money = GameObject.Find("ThrowMoney");
+        m_moneyTrans = m_money.transform;
     }
 
     // Update is called once per frame
@@ -57,15 +58,20 @@ public class MoveEnemy : MonoBehaviour
 
         m_discoverPlayer = this.GetComponent<Vision>().m_discoverPlayer;
         m_discoverMoney = this.GetComponent<Vision>().m_discoverMoney;
+        m_discoverDust = this.GetComponent<Vision>().m_discoverDust;
 
 
         if (m_discoverMoney)
         {
-            Move(this.transform.position,m_player.transform.position);
+            Move(this.transform.position,m_money.transform.position, m_speed * Time.deltaTime);
         }
         else if(m_discoverPlayer)
         {
-            Move(this.transform.position, m_player.transform.position);
+            Move(this.transform.position, m_player.transform.position, m_speed * Time.deltaTime);
+        }
+        else if(m_discoverDust)
+        {
+            
         }
     }
 
@@ -75,25 +81,19 @@ public class MoveEnemy : MonoBehaviour
     }
 
     // –Ú•W‚ðŒ©‚Â‚¯‚½Žž‚Ìˆ—
-    void Move(Vector2 _current, Vector2 _target)
+    void Move(Vector2 _current, Vector2 _target, float _maxDistanceDelta)
     {
-        Vector2 _enePos = this.transform.position;
-        m_player = GameObject.Find("Player");
-        Vector2 _targetPos = m_player.transform.position;
-        float _maxDistanceDelta = m_speed * Time.deltaTime;
 
-
-        float num1 = _targetPos.x - _enePos.x;
-        float num2 = _targetPos.y - _enePos.y;
+        float num1 = _target.x - _current.x;
+        float num2 = _target.y - _current.y;
         float num3 = num1 * num1 + num2 * num2;
         if (num3 == 0f || (_maxDistanceDelta >= 0f && num3 <= _maxDistanceDelta * _maxDistanceDelta))
         {
-            transform.position = _targetPos;
+            transform.position = _target;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, m_playerTrans.position, m_speed * Time.deltaTime);
         float num4 = (float)Mathf.Sqrt(num3);
-        transform.position = new Vector2(_enePos.x + num1 / num4 * _maxDistanceDelta, _enePos.y + num2 / num4 * _maxDistanceDelta);
+        transform.position = new Vector2(_current.x + num1 / num4 * _maxDistanceDelta, _current.y + num2 / num4 * _maxDistanceDelta);
 
     }
 

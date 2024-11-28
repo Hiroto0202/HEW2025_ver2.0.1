@@ -15,6 +15,7 @@ public class Vision : MonoBehaviour
     bool m_throwMoney;
 
     public bool m_discoverPlayer = false;
+    public bool m_discoverDust = false;
     public bool m_discoverMoney = false;
 
     // Start is called before the first frame update
@@ -73,20 +74,20 @@ public class Vision : MonoBehaviour
 
     void DiscoverDust()
     {
-        //m_throwDust = m_obj.GetComponent<DiscoverDust>().m_throwDust;
-        //m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
+        m_throwDust = m_obj.GetComponent<DiscoverDust>().m_throwDust;
+        m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
 
-        //if (!m_throwFlg)
-        //{
-        //    if (m_discoverThrow)
-        //    {
-        //        m_discoverPlayer = true;
-        //    }
-        //    else
-        //    {
-        //        m_discoverPlayer = false;
-        //    }
-        //}
+        if (m_throwFlg)
+        {
+            if (!m_discoverThrow)
+            {
+                m_discoverDust = true;
+            }
+            else
+            {
+                m_discoverDust = false;
+            }
+        }
 
     }
 
