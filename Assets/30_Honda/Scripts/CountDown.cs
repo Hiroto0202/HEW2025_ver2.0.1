@@ -9,11 +9,13 @@ public class CountDown : MonoBehaviour
     public float m_countDownTime = 4;   // カウントダウンする秒数
     int m_count = 0;                    // カウントダウン表示用
     public bool m_countDownFg;          // カウントダウンしているかどうか 
-    public UIManager m_UIManager;       
+    public UIManager m_UIManager;
+    Build m_build;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_build = GetComponent<Build>();
         m_countDownFg = true;
     }
 
@@ -32,5 +34,15 @@ public class CountDown : MonoBehaviour
             m_countDownFg = false;  // カウントダウン終了
             m_UIManager.m_countDownText.enabled = false; // テキストを非表示
         }
+    }
+
+    //===========================================================
+    // 初期化処理
+    //===========================================================
+    public void Init()
+    {
+        m_countDownFg = true; 
+        m_countDownTime = 4;    // タイマーリセット
+        m_UIManager.m_countDownText.enabled = true; // テキストを非表示
     }
 }

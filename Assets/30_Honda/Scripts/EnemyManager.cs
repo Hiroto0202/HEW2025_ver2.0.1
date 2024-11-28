@@ -40,14 +40,29 @@ public class EnemyManager : MonoBehaviour
             CreateEnemy();  // Å‘åoŒ»”‚Ü‚Å“G‚ðì¬‚·‚é
             DeleteEnemy();  // ƒtƒ‰ƒO‚Ì—§‚Á‚Ä‚¢‚é“G‚ðíœ‚·‚é
         }
+
+        // ŽŸ‚ÌƒtƒF[ƒY‚ÉˆÚ‚éŽž‚É‰Šú‰»
+        if(m_build.m_nextPhaseFg == true)
+        {
+            Init();
+        }
     }
 
     //===========================================
     // ‰Šú‰»ˆ—
     //===========================================
-    private void Init()
+    public void Init()
     {
-        m_enemyList.Clear();    // “G‚ð‘SÁ‹Ž
+        // “G‚ª‘¶Ý‚·‚éê‡
+        if (m_enemyList.Count > 0)
+        {
+            // ‚·‚×‚Ä‚Ì“G‚ðíœ‚·‚é
+            for (int _index = m_enemyList.Count - 1; _index >= 0; --_index)
+            {
+                Destroy(m_enemyList[_index]);
+                m_enemyList.RemoveAt(_index);
+            }
+        }
     }
 
     //===========================================

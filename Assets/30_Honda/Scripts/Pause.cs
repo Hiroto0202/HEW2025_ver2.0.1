@@ -58,4 +58,13 @@ public class Pause : MonoBehaviour
             }
         }
     }
+
+    //===========================================================
+    // 初期化処理
+    //===========================================================
+    public void Init()
+    {
+        m_pauseFg = false;                          // ポーズしない
+        m_UIManager.m_pauseText.enabled = false;    // 最初は表示しない
+    }
 }
