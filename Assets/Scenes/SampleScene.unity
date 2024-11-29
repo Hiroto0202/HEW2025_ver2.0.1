@@ -1419,6 +1419,7 @@ MonoBehaviour:
   m_maxX: 8
   m_minY: -5
   m_maxY: 5
+  m_fadeOutFg: 0
 --- !u!114 &2059792145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,7 +1433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIManager: {fileID: 1587330964}
-  m_time: 10
+  m_timeLimit: 10
   m_endFg: 0
 --- !u!114 &2059792146
 MonoBehaviour:

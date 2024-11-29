@@ -23,7 +23,7 @@ public class Build : MonoBehaviour
     void Update()
     {
         // §ŒÀŠÔ‚ª‰ß‚¬‚½‚ç
-        if(m_timeLimit.m_time <= 0)
+        if(m_timeLimit.m_timeLimit <= 0)
         {
             m_buildFg = true;   // ƒrƒ‹ƒh‰æ–Ê‚É‚·‚é
         }

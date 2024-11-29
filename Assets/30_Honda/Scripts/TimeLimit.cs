@@ -8,7 +8,7 @@ public class TimeLimit : MonoBehaviour
     CountDown m_countDown;
     Pause m_pause;
     Build m_build;
-    public float m_time = 10;
+    public float m_timeLimit = 10;
     public bool m_endFg = false;    // 制限時間になったかどうか
 
     // Start is called before the first frame update
@@ -28,11 +28,11 @@ public class TimeLimit : MonoBehaviour
             m_UIManager.m_timeLimitText.enabled = true; // 表示
 
             // ポーズ、ビルド以外の時に時間を減らす
-            if (m_time > 0 && m_pause.m_pauseFg == false && m_build.m_buildFg == false)
+            if (m_timeLimit > 0 && m_pause.m_pauseFg == false && m_build.m_buildFg == false)
             {
 
-                m_time -= Time.deltaTime;
-                m_UIManager.m_timeLimitText.text = m_time.ToString("0.00s");
+                m_timeLimit -= Time.deltaTime;
+                m_UIManager.m_timeLimitText.text = m_timeLimit.ToString("0.00s");
             }
             else
             {
@@ -46,8 +46,7 @@ public class TimeLimit : MonoBehaviour
     //===========================================================
      public void Init()
     {
-        Debug.Log("Hoge");
-        m_time = 10;
+        m_timeLimit = 10;
         m_endFg = false;    // 制限時間になったかどうか
         m_UIManager.m_timeLimitText.enabled = false; // 非表示
     }

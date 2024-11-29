@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6cf92c02bda3b408c39acba293939a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_deleteTime: 5
+  m_deleteTime: 1
   m_deleteFg: 0
 --- !u!114 &2909033348024173317
 MonoBehaviour:
@@ -112,3 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f06bc0a26a2454f800842649ab989a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_duration: 0.5
+  m_fadeOutFg: 0
+  m_completeFadeOut: 0
+  m_completeFadeIn: 0
