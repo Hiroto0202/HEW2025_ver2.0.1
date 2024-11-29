@@ -21,6 +21,7 @@ public class EnemyManager : MonoBehaviour
     Pause m_pause;
     Build m_build;
     Fade m_fade;
+    int m_index = 0;    // 敵の添え字
 
     // Start is called before the first frame update
     void Start()
@@ -75,23 +76,13 @@ public class EnemyManager : MonoBehaviour
         // 敵が最大出現数より少ない時
         if(m_enemyList.Count < m_maxEnemyNum )
         {
-            // フェードインしていない時
-            //if(m_fade.m_isFadeIn == false)
-            {
-                m_newEnemy = Instantiate(m_enemyPrefab);    // 敵を生成
-                m_enemyList.Add(m_newEnemy);                // 敵をリストに追加
-                // 決められた範囲内のランダムな位置にする
-                float _x = Random.Range(m_minX, m_maxX);
-                float _y = Random.Range(m_minY, m_maxY);
-                m_newEnemy.transform.position = new Vector2(_x, _y);
-               // m_fade.FadeIn(m_newEnemy);  // フェードイン開始
-            }
-            // フェードインしている時
-            //else
-            {
-               // m_fade.FadeIn(m_newEnemy);  // フェードインのみ実行
-            }
+            m_newEnemy = Instantiate(m_enemyPrefab);    // 敵を生成
+            m_enemyList.Add(m_newEnemy);                // 敵をリストに追加
 
+            // 決められた範囲内のランダムな位置にする
+            float _x = Random.Range(m_minX, m_maxX);
+            float _y = Random.Range(m_minY, m_maxY);
+            m_newEnemy.transform.position = new Vector2(_x, _y);
         }
     }
 
@@ -104,23 +95,14 @@ public class EnemyManager : MonoBehaviour
         if(m_elapsedTime >= m_searchFlagTime)
         {
             int _index = Random.Range(0, m_enemyList.Count);    // 削除する敵の添え字を決定
+
             // 敵スクリプト内の削除フラグが立っている時
-            if (m_enemyList[_index].GetComponent<MoveEnemy>().m_deleteFg == true)
+            if (m_enemyList[m_index].GetComponent<MoveEnemy>().m_deleteFg == true)
             {
-                m_fade.FadeOut(m_enemyList[_index]);    // フェードアウト開始
-                // フェードアウトしている時
-                if(m_fade.m_isFadeOut == true)
-                {
-                    m_fade.FadeOut(m_enemyList[_index]);    // フェードアウトのみ実行
-                }
-                // フェードアウト終了後
-                else
-                {
-                    // 敵を削除する
-                    Destroy(m_enemyList[_index]);
-                    m_enemyList.RemoveAt(_index);
-                    Debug.Log(_index + "番目を削除した");
-                }
+                //// 敵を削除する
+                //Destroy(m_enemyList[m_index]);
+                //m_enemyList.RemoveAt(m_index);
+                //Debug.Log(m_index + "番目を削除した");
             }
             m_elapsedTime = 0;  // 経過時間をリセット
         }

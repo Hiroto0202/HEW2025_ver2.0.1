@@ -4,34 +4,29 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour
 {
-    public bool m_isFadeIn = false;     // フェードインしているかどうか
-    public bool m_isFadeOut = false;    // フェードアウトしているかどうか
-    float m_fadeTime = 0.0f;
+    MoveEnemy m_moveEnemy;              
+    SpriteRenderer m_spriteRenderer;    // フェードするオブジェクト
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_moveEnemy = GetComponent<MoveEnemy>();
+        m_spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(m_isFadeIn);
-        //Debug.Log(m_isFadeOut);
+
     }
 
     //=============================================
     // オブジェクトをフェードイン
     //=============================================
-    public void FadeIn(GameObject _newObj)
+    public void FadeIn()
     {
-        m_isFadeIn = true;
-        SpriteRenderer _spriteRenderer = _newObj.GetComponent<SpriteRenderer>();
-        Color _spriteColor = _spriteRenderer.color;             // 現在のRGBAを取得
-        _spriteColor.a = 0.0f;                                  // 透明にする
-
-        float _duration = 0.5f;                                 // フェードにかける時間
+        Color _spriteColor = m_spriteRenderer.color;            // 現在のRGBAを取得
+        float _duration = 1.5f;                                 // フェードにかける時間
         float _targetAlpha = 1.0f;                              // 最終のアルファ値
 
         // 現在のアルファ値が指定された値でない間
@@ -41,38 +36,31 @@ public class Fade : MonoBehaviour
 
             // 求めた変化値ごとにアルファ値を変更する
             _spriteColor.a +=_changeSpeed;
-            _spriteRenderer.color = _spriteColor;
-        }
-        else
-        {
-            m_isFadeIn = true; // フェードイン完了
+            m_spriteRenderer.color = _spriteColor;
         }
     }
 
     //=============================================
     // オブジェクトをフェードアウト
     //=============================================
-    public void FadeOut(GameObject _newObj)
+    public void FadeOut()
     {
-        m_isFadeOut = true;
-        SpriteRenderer _spriteRenderer = _newObj.GetComponent<SpriteRenderer>();
-        Color _spriteColor = _spriteRenderer.color;             // 現在のRGBAを取得
-
-        float _duration = 0.5f;                                 // フェードにかける時間
+        Color _spriteColor = m_spriteRenderer.color;            // 現在のRGBAを取得
+        float _duration = 1.5f;                                 // フェードにかける時間
         float _targetAlpha = 0.0f;                              // 最終のアルファ値
 
         // 現在のアルファ値が指定された値でない間
         if (_spriteColor.a > _targetAlpha)
         {
-            float _changeSpeed = Time.deltaTime / _duration;   // 透明度の変化値を求める
+            float _changeSpeed = Time.deltaTime / _duration;    // 透明度の変化値を求める
 
             // 求めた変化値ごとにアルファ値を変更する
             _spriteColor.a -= _changeSpeed;
-            _spriteRenderer.color = _spriteColor;
+            m_spriteRenderer.color = _spriteColor;
         }
         else
         {
-            m_isFadeOut = false;    // フェードアウト完了
+            m_moveEnemy.m_deleteFg = true;  // 敵の削除フラグを立てる
         }
     }
 }

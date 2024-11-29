@@ -26,13 +26,6 @@ public class Build : MonoBehaviour
         if(m_timeLimit.m_time <= 0)
         {
             m_buildFg = true;   // ビルド画面にする
-            //m_phaseUpdateFg = true;
-            //// フェーズ情報を次のものに更新する
-            //if (m_phaseUpdateFg == true)
-            //{
-            //    m_phaseCnt++;            // 次のフェーズにする
-            //    m_phaseUpdateFg = false; // これ以上変化させない
-            //}
         }
 
         // ビルド画面の時
@@ -47,13 +40,11 @@ public class Build : MonoBehaviour
                 m_phaseCnt++;           // 次のフェーズにする
                 m_buildFg = false;      // ゲームに戻る
                 m_nextPhaseFg = true;   // 次のフェーズに移る
-                //m_phaseUpdateFg = false;
             }
         }
         // ビルド画面でない時
         else
         {
-            Debug.Log("ビルド終了");
             m_UIManager.m_buildText.enabled = false; // ビルドを非表示
             //Time.timeScale = 1.0f;  // 時間を進める
         }
@@ -62,6 +53,5 @@ public class Build : MonoBehaviour
     public void GameInit()
     {
         m_timeLimit.Init();
-
     }
 }
