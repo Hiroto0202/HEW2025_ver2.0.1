@@ -20,6 +20,10 @@ public class EnemyManager : MonoBehaviour
     CountDown m_countDown;
     Pause m_pause;
     Build m_build;
+    public bool m_fadeOutFg;
+    int m_index = 0;        // 敵の添え字
+
+    int cnt = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +41,11 @@ public class EnemyManager : MonoBehaviour
         {
             m_elapsedTime += Time.deltaTime;    // 経過時間を求める
 
-            CreateEnemy();  // 最大出現数まで敵を作成する
+            if(cnt < m_maxEnemyNum)
+            {
+                CreateEnemy();  // 最大出現数まで敵を作成する
+                cnt++;
+            }
             DeleteEnemy();  // フラグの立っている敵を削除する
         }
 
@@ -91,14 +99,24 @@ public class EnemyManager : MonoBehaviour
         // 検索時間になった時
         if(m_elapsedTime >= m_searchFlagTime)
         {
-            int _index = Random.Range(0, m_enemyList.Count);    // 削除する敵の添え字を決定
+            m_index = Random.Range(0, m_enemyList.Count);    // 削除する敵の添え字を決定
+            MoveEnemy _moveEnemy = m_enemyList[m_index].GetComponent<MoveEnemy>();
+            Fade _fade = m_enemyList[m_index].GetComponent<Fade>();
+
             // 敵スクリプト内の削除フラグが立っている時
-            if (m_enemyList[_index].GetComponent<MoveEnemy>().m_deleteFg == true)
+            if (_moveEnemy.m_deleteFg == true)
+            {
+                _fade.m_fadeOutFg = true;       // フェードアウトさせる
+                //Debug.Log(m_index);
+            }
+
+            // フェードアウトが完了したら
+            if (_fade.m_completeFadeOut == true)
             {
                 // 敵を削除する
-                Destroy(m_enemyList[_index]);
-                m_enemyList.RemoveAt(_index);
-                Debug.Log(_index + "番目を削除した");
+                Destroy(m_enemyList[m_index]);
+                m_enemyList.RemoveAt(m_index);
+                //Debug.Log(m_index + "番目を削除した");
             }
             m_elapsedTime = 0;  // 経過時間をリセット
         }
