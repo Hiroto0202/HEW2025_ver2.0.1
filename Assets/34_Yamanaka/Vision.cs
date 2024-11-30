@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class Vision : MonoBehaviour
@@ -8,8 +9,8 @@ public class Vision : MonoBehaviour
     GameObject m_obj;
     public GameObject m_prefub;
 
-    bool m_discoverThrow;
     bool m_throwFlg;
+    bool m_playerThrow;
 
     bool m_throwDust;
     bool m_throwMoney;
@@ -22,55 +23,46 @@ public class Vision : MonoBehaviour
 
     public int m_enemyCount;
 
+    public bool m_deleteFlg = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        //m_obj = Instantiate(m_prefub,transform);
         m_obj = Instantiate(m_prefub);
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_obj.transform.position = this.transform.position;
-
-        m_obj.transform.localScale = Vector3.one * 5;
-
-        m_throwFlg = this.GetComponent<MoveEnemy>().m_throwFlg;
-
-        string m_name = m_obj.name;
-
-
-        switch (m_name)
+        if (m_obj != null)
         {
-            case "SearchPlayer(Clone)":
-                DiscoverPlayer();
-                break;
+            m_obj.transform.position = this.transform.position;
+            m_obj.transform.localScale = Vector3.one * 5;
 
-            case "SearchDust(Clone)":
-                DiscoverDust();
-                break;
+            m_throwFlg = this.GetComponent<MoveEnemy>().m_throwFlg;
 
-            case "SearchMoney(Clone)":
-                DiscoverMoney();
-                break;
+            m_playerThrow = m_obj.GetComponent<Search>().m_playerThrow;
+            m_throwDust = m_obj.GetComponent<Search>().m_throwDust;
+            m_throwMoney = m_obj.GetComponent<Search>().m_throwMoney;
+            m_enemyCount = m_obj.GetComponent<Search>().m_enemyCount;
 
-            case "SearchEnemy(Clone)":
-                DiscoverEnemy();
-                break;
+            DiscoverPlayer();
+            DiscoverDust();
+            DiscoverMoney();
+            DiscoverEnemy();
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
 
     void DiscoverPlayer()
     {
-        if (m_obj.name == "SearchPlayer(Clone)")
-        {
-            m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
-        }
-
-
         if (m_throwFlg)
         {
-            if (m_discoverThrow)
+            if (m_playerThrow)
             {
                 m_discoverPlayer = true;
             }
@@ -79,20 +71,13 @@ public class Vision : MonoBehaviour
                 m_discoverPlayer = false;
             }
         }
-
     }
 
     void DiscoverDust()
     {
-        if (m_obj.name == "SearchDust(Clone)")
-        {
-            m_throwDust = m_obj.GetComponent<DiscoverDust>().m_throwDust;
-        }
-
-
         if (m_throwFlg)
         {
-            if (!m_discoverThrow)
+            if (!m_playerThrow)
             {
                 m_discoverDust = true;
             }
@@ -101,17 +86,10 @@ public class Vision : MonoBehaviour
                 m_discoverDust = false;
             }
         }
-
     }
 
     void DiscoverMoney()
     {
-        if (m_obj.name == "SearchMoney(Clone)")
-        {
-            m_throwMoney = m_obj.GetComponent<DiscoverMoney>().m_throwMoney;
-        }
-
-
         if (m_throwMoney)
         {
             m_discoverMoney = true;
@@ -120,22 +98,20 @@ public class Vision : MonoBehaviour
 
     void DiscoverEnemy()
     {
-        if (m_obj.name == "SearchEnemy(Clone)")
-        {
-            m_enemyCount = m_obj.GetComponent<DiscoverEnemy>().m_enemyCount;
-        }
-
-        m_throwFlg = GetComponent<MoveEnemy>().m_throwFlg;
-
         if (m_throwFlg)
         {
-            if (m_enemyCount >= 2)
+            if (!m_discoverPlayer)
             {
-                m_battle = GetComponent<Battle>();
-                m_battle.Start();
-                Destroy(m_obj);
-                Destroy(this.gameObject);
+                if (m_enemyCount >= 2)
+                {
+                    m_battle = GetComponent<Battle>();
+                    m_battle.Start();
+
+                    Destroy(m_obj);
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
+
 }

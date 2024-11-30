@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     GameObject m_search;
 
+    public bool m_deleteFlg = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,6 @@ public class Enemy : MonoBehaviour
         m_discoverMoney = GetComponent<Vision>().m_discoverMoney;
         m_enemyCount = GetComponent<Vision>().m_enemyCount;
 
-
+        m_deleteFlg = GetComponent<Vision>().m_deleteFlg;
     }
 }
