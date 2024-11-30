@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 00dfee329ef169f43b8c502e4de6e3fb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_dropMoney: {fileID: 4570201805833055821, guid: 53e707ef39c9aa846aa038ef1be19b10, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
