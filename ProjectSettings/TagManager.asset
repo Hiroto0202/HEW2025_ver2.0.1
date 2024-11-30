@@ -8,6 +8,7 @@ TagManager:
   - ThrowMoney
   - DropMoney
   - DiscoverEnemy
+  - Dust
   layers:
   - Default
   - TransparentFX

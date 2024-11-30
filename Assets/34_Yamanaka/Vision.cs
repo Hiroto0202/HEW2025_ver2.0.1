@@ -9,12 +9,12 @@ public class Vision : MonoBehaviour
     GameObject m_obj;
     public GameObject m_prefub;
 
-    bool m_throwFlg;
     bool m_playerThrow;
 
     bool m_throwDust;
     bool m_throwMoney;
 
+    public bool m_throwFlg = false;
     public bool m_discoverPlayer = false;
     public bool m_discoverDust = false;
     public bool m_discoverMoney = false;
@@ -45,16 +45,13 @@ public class Vision : MonoBehaviour
             m_playerThrow = m_obj.GetComponent<Search>().m_playerThrow;
             m_throwDust = m_obj.GetComponent<Search>().m_throwDust;
             m_throwMoney = m_obj.GetComponent<Search>().m_throwMoney;
+
             m_enemyCount = m_obj.GetComponent<Search>().m_enemyCount;
 
             DiscoverPlayer();
             DiscoverDust();
             DiscoverMoney();
             DiscoverEnemy();
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
 
@@ -75,7 +72,7 @@ public class Vision : MonoBehaviour
 
     void DiscoverDust()
     {
-        if (m_throwFlg)
+        if (m_throwDust)
         {
             if (!m_playerThrow)
             {
