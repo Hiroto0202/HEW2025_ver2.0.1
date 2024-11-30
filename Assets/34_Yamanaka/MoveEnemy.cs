@@ -1,20 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VSCodeEditor;
 
 public class MoveEnemy : MonoBehaviour
 {
-    public float m_speed = 0.5f;    // ˆÚ“®‘¬“x
+    public float m_speed = 0.5f;    
 
-    GameObject m_player;            // –Ú•W“ü—Í—pƒCƒ“ƒXƒ^ƒ“ƒX
-    Transform m_playerTrans;        // –Ú•W‚Ìî•ñ
+    GameObject m_player;            
+    Transform m_playerTrans;        
 
-    GameObject m_dust;            // –Ú•W“ü—Í—pƒCƒ“ƒXƒ^ƒ“ƒX
-    Transform m_dustTrans;        // –Ú•W‚Ìî•ñ
+    GameObject m_dust;            
+    Transform m_dustTrans;        
 
-    GameObject m_money;            // –Ú•W“ü—Í—pƒCƒ“ƒXƒ^ƒ“ƒX
-    Transform m_moneyTrans;        // –Ú•W‚Ìî•ñ
+    GameObject m_money;           
+    Transform m_moneyTrans;        
 
     KeyCode m_space = KeyCode.Space;
     public bool m_throwFlg = false;
@@ -26,15 +25,15 @@ public class MoveEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ƒvƒŒƒCƒ„[‚ğ’T‚·
+        
         m_player = GameObject.Find("Player");
         m_playerTrans = m_player.transform;
 
-        // ƒSƒ~‚ğ’T‚·
+        
         m_dust = GameObject.Find("Dust");
         m_dustTrans = m_dust.transform;
 
-        // ‚¨‹à‚ğ’T‚·
+        
         m_money = GameObject.Find("ThrowMoney");
         m_moneyTrans = m_money.transform;
     }
@@ -54,15 +53,15 @@ public class MoveEnemy : MonoBehaviour
 
         if (m_discoverMoney)
         {
-            Move(this.transform.position,m_money.transform.position, m_speed * Time.deltaTime);
+            Move(this.transform.position, m_money.transform.position, m_speed * Time.deltaTime);
         }
-        else if(m_discoverPlayer)
+        else if (m_discoverPlayer)
         {
-            Move(this.transform.position, m_player.transform.position, m_speed * Time.deltaTime);
+            Move(this.transform.position, m_playerTrans.position, m_speed * Time.deltaTime);
         }
-        else if(m_discoverDust)
+        else if (m_discoverDust)
         {
-            
+            Move(this.transform.position, m_dustTrans.position, m_speed * Time.deltaTime);
         }
     }
 
@@ -71,7 +70,7 @@ public class MoveEnemy : MonoBehaviour
 
     }
 
-    // –Ú•W‚ğŒ©‚Â‚¯‚½‚Ìˆ—
+    
     void Move(Vector2 _current, Vector2 _target, float _maxDistanceDelta)
     {
 
@@ -87,5 +86,4 @@ public class MoveEnemy : MonoBehaviour
         transform.position = new Vector2(_current.x + num1 / num4 * _maxDistanceDelta, _current.y + num2 / num4 * _maxDistanceDelta);
 
     }
-
 }
