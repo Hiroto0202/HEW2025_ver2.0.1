@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - money
+  - Enemy
+  - ThrowMoney
+  - DropMoney
+  - DiscoverEnemy
+  - Dust
   layers:
   - Default
   - TransparentFX
