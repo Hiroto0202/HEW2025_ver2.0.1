@@ -133,6 +133,8 @@ public class Vision : MonoBehaviour
             {
                 m_battle = GetComponent<Battle>();
                 m_battle.Start();
+                Destroy(m_obj);
+                Destroy(this.gameObject);
             }
         }
     }

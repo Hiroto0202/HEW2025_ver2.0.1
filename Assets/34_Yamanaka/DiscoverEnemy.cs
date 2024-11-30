@@ -33,16 +33,5 @@ public class DiscoverEnemy : MonoBehaviour
         {
             m_enemyCount--;
         }
-
     }
-
-    //private void OnTriggerStay2D(Collider2D other)
-    //{
-    //    if (other.transform.tag == "DiscoverEnemy")
-    //    {
-    //        m_enemyCount++;
-    //    }
-
-
-    //}
 }

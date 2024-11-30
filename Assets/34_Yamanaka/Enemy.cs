@@ -27,5 +27,7 @@ public class Enemy : MonoBehaviour
         m_discoverDust = GetComponent<Vision>().m_discoverDust;
         m_discoverMoney = GetComponent<Vision>().m_discoverMoney;
         m_enemyCount = GetComponent<Vision>().m_enemyCount;
+
+
     }
 }
