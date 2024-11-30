@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletThrow : MonoBehaviour
+public class BulletSlow : MonoBehaviour
 {
     public float m_deceleration = 0.98f; // å∏ë¨ó¶Åií≤êÆâ¬î\Åj
     private Rigidbody2D m_rb;

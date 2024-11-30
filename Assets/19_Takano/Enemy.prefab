@@ -10,10 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8907176281113847110}
   - component: {fileID: 2225553063451836963}
-  - component: {fileID: 82733392845150291}
   - component: {fileID: 2909033348024173317}
+  - component: {fileID: 1026194577968903847}
+  - component: {fileID: 7540971368934186834}
+  - component: {fileID: 6371446779894808777}
+  - component: {fileID: 8326622415473580288}
   m_Layer: 0
-  m_Name: E
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &82733392845150291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910368762158980817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6cf92c02bda3b408c39acba293939a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_deleteTime: 1
-  m_deleteFg: 0
 --- !u!114 &2909033348024173317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +105,63 @@ MonoBehaviour:
   m_fadeOutFg: 0
   m_completeFadeOut: 0
   m_completeFadeIn: 0
+--- !u!114 &1026194577968903847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910368762158980817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb4817e161dab9479b55702fe098113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 0.5
+  m_throwFlg: 0
+  m_deleteTime: 5
+  m_deleteFg: 0
+--- !u!114 &7540971368934186834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910368762158980817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f135ccde97a0694cb573208446ddbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prefub: {fileID: 1133910254175021206, guid: 91e37ec87caf48b428e06ff0be830912, type: 3}
+  m_throwFlg: 0
+  m_discoverPlayer: 0
+  m_discoverDust: 0
+  m_discoverMoney: 0
+  m_enemyCount: 0
+  m_deleteFlg: 0
+--- !u!114 &6371446779894808777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910368762158980817}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00dfee329ef169f43b8c502e4de6e3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dropMoney: {fileID: 4570201805833055821, guid: 53e707ef39c9aa846aa038ef1be19b10, type: 3}
+--- !u!114 &8326622415473580288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910368762158980817}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d37095e6b9e0e418c382bf269f6112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

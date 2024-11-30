@@ -35,20 +35,29 @@ public class MoveEnemy : MonoBehaviour
     {
         
         m_player = GameObject.Find("Player");
-        m_playerTrans = m_player.transform;
+        if (m_player == null)
+        {
+            Debug.LogError("Playerが存在しない");
+        }
+        else
+        {
+            m_playerTrans = m_player.GetComponent<Transform>();
+        }
 
         
         m_dust = GameObject.Find("Dust");
-        m_dustTrans = m_dust.transform;
+        if (m_dust) m_dustTrans = m_dust.GetComponent<Transform>();
 
-        
+
         m_money = GameObject.Find("ThrowMoney");
-        m_moneyTrans = m_money.transform;
+        if (m_money) m_moneyTrans = m_money.GetComponent<Transform>();
 
         m_fade = GetComponent<Fade>();
+        if (m_fade == null) Debug.LogError("m_fadeが存在しない");
 
         // 初期は透明にする
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+        if (m_spriteRenderer == null) Debug.LogError("spriteRendererが存在しない");
         m_color = m_spriteRenderer.color;
         m_color.a = 0.0f;
         m_spriteRenderer.color = m_color;
