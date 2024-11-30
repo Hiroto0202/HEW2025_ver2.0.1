@@ -19,20 +19,30 @@ public class DiscoverEnemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.transform.tag == "DiscoverEnemy")
+    {            
+        if (other.transform.tag == "Enemy")
         {
             m_enemyCount++;
+            Debug.Log("Enemy”­Œ©");
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.transform.tag == "DistanceEnemy")
+        if (other.transform.tag == "Enemy")
         {
             m_enemyCount--;
         }
 
     }
+
+    //private void OnTriggerStay2D(Collider2D other)
+    //{
+    //    if (other.transform.tag == "DiscoverEnemy")
+    //    {
+    //        m_enemyCount++;
+    //    }
+
+
+    //}
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7013079133152398183}
   - component: {fileID: 7071191197944670731}
-  - component: {fileID: 2065290555112636613}
+  - component: {fileID: -4176705825344272365}
   - component: {fileID: 4995824003017160924}
   m_Layer: 0
   m_Name: SearchEnemy
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2065290555112636613
+--- !u!114 &-4176705825344272365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1783067546358115903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56405bd730a5544ab91c2a04ddd8e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: be8160fea4fb9ce4eb3f7d2f5c4a6eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_throwDust: 0
+  m_enemyCount: 0
 --- !u!58 &4995824003017160924
 CircleCollider2D:
   m_ObjectHideFlags: 0

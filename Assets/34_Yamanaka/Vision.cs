@@ -9,7 +9,7 @@ public class Vision : MonoBehaviour
     public GameObject m_prefub;
 
     bool m_discoverThrow;
-    public bool m_throwFlg;
+    bool m_throwFlg;
 
     bool m_throwDust;
     bool m_throwMoney;
@@ -17,6 +17,10 @@ public class Vision : MonoBehaviour
     public bool m_discoverPlayer = false;
     public bool m_discoverDust = false;
     public bool m_discoverMoney = false;
+
+    Battle m_battle;
+
+    public int m_enemyCount;
 
     // Start is called before the first frame update
     void Start()
@@ -40,23 +44,29 @@ public class Vision : MonoBehaviour
         {
             case "SearchPlayer(Clone)":
                 DiscoverPlayer();
-                Debug.Log("Searchplayeré¿çsíÜ");
                 break;
 
-            case "DiscoverDust(Clone)":
-                //DiscoverDust();
+            case "SearchDust(Clone)":
+                DiscoverDust();
                 break;
 
-            case "DiscoverMoney(Clone)":
-                //DiscoverMoney();
+            case "SearchMoney(Clone)":
+                DiscoverMoney();
+                break;
+
+            case "SearchEnemy(Clone)":
+                DiscoverEnemy();
                 break;
         }
     }
 
     void DiscoverPlayer()
     {
+        if (m_obj.name == "SearchPlayer(Clone)")
+        {
+            m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
+        }
 
-        m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
 
         if (m_throwFlg)
         {
@@ -74,8 +84,11 @@ public class Vision : MonoBehaviour
 
     void DiscoverDust()
     {
-        m_throwDust = m_obj.GetComponent<DiscoverDust>().m_throwDust;
-        m_discoverThrow = m_obj.GetComponent<DiscoverThrow>().m_playerThrow;
+        if (m_obj.name == "SearchDust(Clone)")
+        {
+            m_throwDust = m_obj.GetComponent<DiscoverDust>().m_throwDust;
+        }
+
 
         if (m_throwFlg)
         {
@@ -93,11 +106,34 @@ public class Vision : MonoBehaviour
 
     void DiscoverMoney()
     {
-        bool m_throwMoney = m_obj.GetComponent<DiscoverMoney>().m_throwMoney;
+        if (m_obj.name == "SearchMoney(Clone)")
+        {
+            m_throwMoney = m_obj.GetComponent<DiscoverMoney>().m_throwMoney;
+        }
 
-        if(m_throwMoney)
+
+        if (m_throwMoney)
         {
             m_discoverMoney = true;
+        }
+    }
+
+    void DiscoverEnemy()
+    {
+        if (m_obj.name == "SearchEnemy(Clone)")
+        {
+            m_enemyCount = m_obj.GetComponent<DiscoverEnemy>().m_enemyCount;
+        }
+
+        m_throwFlg = GetComponent<MoveEnemy>().m_throwFlg;
+
+        if (m_throwFlg)
+        {
+            if (m_enemyCount >= 2)
+            {
+                m_battle = GetComponent<Battle>();
+                m_battle.Start();
+            }
         }
     }
 }

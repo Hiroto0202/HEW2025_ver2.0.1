@@ -8,16 +8,10 @@ public class DropMoney : MonoBehaviour
     GameObject m_obj;
     public GameObject m_dropMoney;
 
-    Amount m_amount;
-
-    int m_drop = 0;
-
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        m_obj=Instantiate(m_dropMoney);
-        m_amount = GetComponent<Amount>();
-        m_drop = m_amount.amount;
+        m_obj = Instantiate(m_dropMoney);
     }
 
     // Update is called once per frame

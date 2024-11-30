@@ -57,7 +57,6 @@ public class player : MonoBehaviour
         {
 
             Vector3 _vec = new Vector3(this.transform.position.x, this.transform.position.y, -0.01f);
-            m_obj = Instantiate(m_prefub, _vec, Quaternion.identity);
 
         }
 

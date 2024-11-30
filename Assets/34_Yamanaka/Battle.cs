@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
-    int m_enemyCount = 0;
+    DropMoney m_drop;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        m_drop = GetComponent<DropMoney>();
+        m_drop.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if(m_enemyCount >= 2)
-        {
 
-        }
     }
 }

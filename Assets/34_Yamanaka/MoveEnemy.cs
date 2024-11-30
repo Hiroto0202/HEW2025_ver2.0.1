@@ -5,8 +5,6 @@ using VSCodeEditor;
 
 public class MoveEnemy : MonoBehaviour
 {
-    Rigidbody2D m_rb;               // Rigidbody2D取得
-    public Vector2 m_moveForward;   // 移動度
     public float m_speed = 0.5f;    // 移動速度
 
     GameObject m_player;            // 目標入力用インスタンス
@@ -28,13 +26,6 @@ public class MoveEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Rigidbody2D取得
-        m_rb = GetComponent<Rigidbody2D>();
-
-
-        // 移動度初期化
-        m_moveForward.x = 1.0f;
-
         // プレイヤーを探す
         m_player = GameObject.Find("Player");
         m_playerTrans = m_player.transform;

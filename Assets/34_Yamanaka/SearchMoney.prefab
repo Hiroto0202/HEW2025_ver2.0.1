@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7593544891949504978}
   - component: {fileID: 7643501810715293886}
-  - component: {fileID: 1458514109534371135}
+  - component: {fileID: -4399961366675098979}
   - component: {fileID: 5577283720229169769}
   m_Layer: 0
   m_Name: SearchMoney
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1458514109534371135
+--- !u!114 &-4399961366675098979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1192465389310901386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91fbfe41ed4cc84791c69b802ed97a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5023410bbbc4db64497b61f601af4bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerThrow: 0
+  m_throwMoney: 0
 --- !u!58 &5577283720229169769
 CircleCollider2D:
   m_ObjectHideFlags: 0
