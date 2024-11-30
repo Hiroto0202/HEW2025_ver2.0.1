@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     public bool m_fadeOutFg;
     int m_index = 0;        // “G‚Ì“Y‚¦š
 
-    int cnt = 0;
+    int m_cnt = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +41,10 @@ public class EnemyManager : MonoBehaviour
         {
             m_elapsedTime += Time.deltaTime;    // Œo‰ßŠÔ‚ğ‹‚ß‚é
 
-            if(cnt < m_maxEnemyNum)
+            if(m_cnt < m_maxEnemyNum)
             {
                 CreateEnemy();  // Å‘åoŒ»”‚Ü‚Å“G‚ğì¬‚·‚é
-                cnt++;
+                m_cnt++;
             }
             DeleteEnemy();  // ƒtƒ‰ƒO‚Ì—§‚Á‚Ä‚¢‚é“G‚ğíœ‚·‚é
         }
@@ -71,6 +71,7 @@ public class EnemyManager : MonoBehaviour
                 m_enemyList.RemoveAt(_index);
             }
         }
+        m_cnt = 0;
     }
 
     //===========================================
@@ -99,7 +100,7 @@ public class EnemyManager : MonoBehaviour
         // ŒŸõŠÔ‚É‚È‚Á‚½
         if(m_elapsedTime >= m_searchFlagTime)
         {
-            m_index = Random.Range(0, m_enemyList.Count);    // íœ‚·‚é“G‚Ì“Y‚¦š‚ğŒˆ’è
+            m_index = Random.Range(0, m_enemyList.Count - 1);    // íœ‚·‚é“G‚Ì“Y‚¦š‚ğŒˆ’è
             MoveEnemy _moveEnemy = m_enemyList[m_index].GetComponent<MoveEnemy>();
             Fade _fade = m_enemyList[m_index].GetComponent<Fade>();
 
