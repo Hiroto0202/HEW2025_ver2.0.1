@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActMoney : MonoBehaviour
 {
 //    public int m_money = 0;
-    public int m_pocket = 0;
+    public int m_pocket = 0;//お金
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class ActMoney : MonoBehaviour
         if (collision.gameObject.tag == "money")
         {
             Debug.Log("moneyと衝突しました！");
-            Destroy(collision.gameObject);
-            m_pocket++;
+            Destroy(collision.gameObject);//オブジェクト消す
+            m_pocket++;                   //お金を増やす
         }
     }
 }
